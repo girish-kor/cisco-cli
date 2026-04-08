@@ -1,0 +1,66 @@
+{
+  "name": "@cisco-cli/simulator",
+  "version": "1.0.1",
+  "description": "Interactive Cisco CLI simulator built with Node.js",
+  "main": "src/index.js",
+  "bin": {
+    "cisco-cli": "bin/cisco-cli.js"
+  },
+  "keywords": [
+    "cisco",
+    "cli",
+    "simulator",
+    "networking",
+    "device-management",
+    "interactive"
+  ],
+  "author": "Girish Kor <girishkor5@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/girish-kor/cisco-cli.git"
+  },
+  "homepage": "https://github.com/girish-kor/cisco-cli#readme",
+  "bugs": {
+    "url": "https://github.com/girish-kor/cisco-cli/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node bin/cisco-cli.js",
+    "dev": "node bin/cisco-cli.js --debug",
+    "test": "jest --forceExit",
+    "test:coverage": "jest --coverage --forceExit",
+    "test:watch": "jest --watch --forceExit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"**/*.{js,json,md}\"",
+    "format:check": "prettier --check \"**/*.{js,json,md}\"",
+    "prepublishOnly": "npm run lint && npm run test:coverage && npm run format:check",
+    "prepack": "npm run prepublishOnly",
+    "prepare": "npm run lint && npm test",
+    "postversion": "npm run format",
+    "validate": "npm run lint && npm run format:check && npm run test"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.0.0",
+    "dotenv": "^16.3.1",
+    "fs-extra": "^11.1.1",
+    "inquirer": "^8.2.6",
+    "ora": "^5.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.1.1"
+  }
+}
